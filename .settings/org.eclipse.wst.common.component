@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
-    <wb-module deploy-name="yash_dynamic_1">
+        
+    <wb-module deploy-name="Flight-Management-System">
+                
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
+                
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
-        <property name="context-root" value="yash_dynamic_1"/>
-        <property name="java-output-path" value="/yash_dynamic_1/build/classes"/>
+                
+        <property name="java-output-path" value="/Flight-Management-System/build/classes"/>
+        <property name="context-root" value="Flight-Management-System"/>
+            
     </wb-module>
+    
 </project-modules>
