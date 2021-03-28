@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Flight Add</title>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans&display=swap" rel="stylesheet">
+<style type="text/css">
+
+	body{
+		background: url(img/bg.jpg) no-repeat fixed center / cover; 
+    	height: 100%;
+    	min-height: 700px;
+	}
+		ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li a {
+  float: left;
+  font-family: 'DM Sans';
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #ef9761;
+}
+
+</style>
+</head>
+<body>
+
+<ul>
+	<li><a href="AdminDash.html">DashBoard</a></li>
+  <li><a href="FileDetails.jsp">Flight Details</a></li>
+  <li><a href="AddFlight.html">Add Flight</a></li>
+  <li><a href="#">Bookings</a></li>
+</ul>
+
+<br>
+<br>
+
+<div style="background-color: rgba(0, 0, 0, 0.7); margin-left: 30%; margin-right: 30%; padding-bottom: 50px; border-radius: 20px 20px 20px 20px; color: white; margin-top: 20px;">
+
+	<div style="text-align: center;">
+		<img src="img/FMS.png" style="height: 120px; width: 300px; padding-top: 30px;">	
+	</div>
+	
+	<h3 style="text-align: center; padding-bottom: 10px; font-family: 'Ubuntu', sans-serif; letter-spacing: 1.5px;font-size: 20px;">Add Here</h3>
+
+
+	<form name="addflight" method="post" action="/Flight-Management-System/AddFlight" style="text-align: center; font-family: 'DM Sans', sans-serif; letter-spacing: 1.13px;">
+	<table align="center">
+		<tr>
+			<td align="right" height="30px">Airline :</td>
+		 	<td><input type="text" name="aname"/></td>
+		</tr>
+		<tr>
+			<td align="right" height="30px">Airline Code :</td> 
+			<td><input type="text" name="acode"/></td> 
+		</tr>
+		<tr>
+			<td align="right" height="30px">Departure :</td> 
+			<td><input type="text" name="dep"/></td> 
+		</tr>
+		<tr>
+			<td align="right" height="30px">Arrival :</td> 
+			<td><input type="text" name="arr"/></td> 
+		</tr>
+		<tr>
+			<td align="right" height="30px">Seats :</td> 
+			<td><input type="number" name="seat"/></td> 
+		</tr>
+		<tr>
+			<td align="right" height="30px">Charges :</td> 
+			<td><input type="number" name="chrg"/></td> 
+		</tr>
+		<tr align="center" height="50px">
+			<td></td>
+			<td align="left"><input type="submit" value="Add" style="font-family: 'DM Sans', sans-serif; background-color: #ef9761; color: black; padding: 8px; border-radius: 0px 8px 0px 8px; border-bottom: 3px solid white; letter-spacing: 1.1px;" /></td>
+		</tr>
+</table>
+</form>
+</div>
+
+</body>
+</html>

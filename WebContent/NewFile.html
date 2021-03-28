@@ -2,25 +2,65 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Flight Management System - Register</title>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans&display=swap" rel="stylesheet">
+<style type="text/css">
+	body{
+		background: url(img/bg.jpg) no-repeat fixed center / cover; 
+    	height: 100%;
+    	min-height: 700px;
+	}
+</style>
 </head>
 <body>
 
-<h1>Flight Management System</h1>
+<br>
 
-<h3>Registration Form</h3>
+<div style="background-color: rgba(0, 0, 0, 0.7); margin-left: 30%; margin-right: 30%; padding-bottom: 50px; border-radius: 20px 20px 20px 20px; color: white; margin-top: 100px;">
 
-<form name="regform" method="post" action="/Flight-Management-System/Example">
-First Name : <input type="text" name="fname"/> <br/>
-Last Name : <input type="text" name="lname"/> <br/>
-Email : <input type="email" name="email"/> <br/>
-Password : <input type="password" name="password"/> <br/>
-<input type="submit" value="Register"/>
+	<div style="text-align: center;">
+		<img src="img/FMS.png" style="height: 120px; width: 300px; padding-top: 30px;">	
+	</div>
+
+<h3 style="text-align: center; padding-bottom: 10px; font-family: 'Ubuntu', sans-serif; letter-spacing: 1.5px;font-size: 20px;">Register Here</h3>
+
+
+<form name="regform" method="post" action="/Flight-Management-System/Example" style="text-align: center; font-family: 'DM Sans', sans-serif; letter-spacing: 1.13px;">
+	<table align="center">
+		<tr>
+			<td align="right" height="30px">First Name :</td>
+		 	<td><input type="text" name="fname"/></td>
+		</tr>
+		<tr>
+			<td align="right" height="30px">Last Name :</td> 
+			<td><input type="text" name="lname"/></td> 
+		</tr>
+		<tr>
+			<td align="right" height="30px">Email :</td> 
+			<td><input type="text" name="email"/></td> 
+		</tr>
+		<tr>
+			<td align="right" height="30px">Password :</td> 
+			<td><input type="password" name="password"/></td> 
+		</tr>
+		<tr align="center" height="50px">
+			<td></td>
+			<td align="left"><input type="submit" value="Register" style="font-family: 'DM Sans', sans-serif; background-color: #ef9761; color: black; padding: 8px; border-radius: 0px 8px 0px 8px; border-bottom: 3px solid white; letter-spacing: 1.1px;" /></td>
+		</tr>
+</table>
 </form>
-<div>
-	Already an user? <a href = "Login.html">Login Here</a>
+
+<div style="text-align: center; font-family: 'DM Sans', sans-serif; padding-top: 3px;">
+	Already a user? <a href = "Login.html" style="color: white;">Login Here</a> | <a href = "LoginAdmin.html" style="color: white;">Login For Admin</a>
 </div>
 
+</div>
+
+<footer style="text-align: center; font-family: 'DM Sans', sans-serif; bottom: 0; position: fixed; left: 0; width: 100%; padding-bottom: 20px; color: white; background-color: black; padding-top: 20px;">
+	Designed and Developed by Arpit Masih | Aditya Chaudhary | Yash Garg
+</footer>
 
 </body>
 </html>
