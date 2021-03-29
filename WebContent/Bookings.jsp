@@ -5,12 +5,16 @@
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.Connection"%>
 <%
-String aname = request.getParameter("aname");
-String acode = request.getParameter("acode");
-String dep = request.getParameter("dep");
-String arr = request.getParameter("arr");
-String seat = request.getParameter("seat");
-String chrg = request.getParameter("chrg");
+String fname = request.getParameter("fname");
+String lname = request.getParameter("lname");
+String mail =   request.getParameter("mail");
+String phone =   request.getParameter("phone");
+String aname =  request.getParameter("aname");
+String code =  request.getParameter("code");
+String dep =  request.getParameter("dep");
+String arr =  request.getParameter("arr");
+String peeps =  request.getParameter("peeps");
+
 String driver = "com.mysql.jdbc.Driver";
 String connectionUrl = "jdbc:mysql://localhost:3306/";
 String database = "flight_mng";
@@ -29,11 +33,40 @@ ResultSet resultSet = null;
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Flight Details</title>
+<title>Booking Details</title>
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans&display=swap" rel="stylesheet">
 <style type="text/css">
+
+	body{
+    background: url(img/bg.jpg) no-repeat fixed center / cover; 
+      height: 100%;
+      min-height: 700px;
+  }
+
+	ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+  border-radius: 16px;
+}
+
+li a {
+  float: left;
+  font-family: 'DM Sans';
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #ef9761;
+}
 
 td, th {
   padding: 8px;
@@ -61,35 +94,48 @@ td {
 
 </style>
 </head>
-<body style="text-align: center;">
+<body>
 
-	<h3 style="text-align: center; font-family: 'Ubuntu'; color: white;">Flight Details</h3>
+	<ul>
+  <li><a href="AdminDash.html">DashBoard</a></li>
+  <li><a href="AddFlight.html">Add Flight</a></li>
+  <li><a href="Bookings.jsp">Bookings</a></li>
+</ul>
+<br>
 
-	<table align="center">
+<div style="background-color: rgba(0, 0, 0, 0.3); border-radius: 20px 20px 20px 20px; color: white; padding: 20px;">
+
+	<h3 style="text-align: center; font-family: 'Ubuntu'; color: white;">Booking Details</h3>
+
+	<table align="center" style="color: black;">
 		<tr>
+			<th>FirstName</th>
+			<th>LastName</th>
+			<th>Email</th>
+			<th>Contact</th>
 			<th>Airline</th>
-			<th>Code</th>
 			<th>Departure</th>
 			<th>Arrival</th>
-			<th>Seats</th>
-			<th>Price(INR)</th>
+			<th>Passengers</th>
 		</tr>
 
 <%
 try{
 connection = DriverManager.getConnection(connectionUrl+database, userid, password);
 statement=connection.createStatement();
-String sql ="select * from flightdata";
+String sql ="select * from bookings";
 resultSet = statement.executeQuery(sql);
 while(resultSet.next()){
 %>
 		<tr>
-			<td><%=resultSet.getString("Airlines") %></td>
-			<td><%=resultSet.getString("Code") %></td>
+			<td><%=resultSet.getString("FirstName") %></td>
+			<td><%=resultSet.getString("Lastname") %></td>
+			<td><%=resultSet.getString("Email") %></td>
+			<td><%=resultSet.getString("Contact") %></td>
+			<td><%=resultSet.getString("Airline") %></td>
 			<td><%=resultSet.getString("Departure") %></td>
 			<td><%=resultSet.getString("Arrival") %></td>
-			<td><%=resultSet.getString("Seats") %></td>
-			<td><%=resultSet.getString("Charges") %></td>
+			<td><%=resultSet.getString("Passengers") %></td>
 		</tr>
 <%
 }
@@ -100,5 +146,6 @@ e.printStackTrace();
 %>
 	</table>
 
+</div>
 </body>
 </html>

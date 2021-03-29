@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -66,19 +67,14 @@ public class Login extends HttpServlet {
 	    			String l_name = rs.getString("LastName");
 			    	
 			    	if(email_id.equals(loginemail) && pass.equals(loginpass)){
-			    		System.out.println("Logged in with user: " + loginemail); 
-			    		login = true;
-			    		System.out.println("Email: " + loginemail);
-			            System.out.println("Password: " + loginpass);
-			            PrintWriter writer = response.getWriter();
-
-			            String htmlResponse = "<html>";
-			            htmlResponse += "<h2>Logged in as: " + f_name + " " + l_name  + "<br/>";       
-			            htmlResponse += "</html>";
-			            out.print(htmlResponse);
+			            login = true;
+			            RequestDispatcher rd = request.getRequestDispatcher("/UserDash.jsp");
+		                rd.forward(request, response);
 			    		break;
 			    	} else {
 			    		login = false;
+			    		RequestDispatcher rd = request.getRequestDispatcher("/Login.html");
+		                rd.forward(request, response);
 			    	}
 			    }
     		} catch (Exception e) {
