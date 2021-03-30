@@ -67,6 +67,7 @@ td {
 
 	<table align="center">
 		<tr>
+			<th>ID</th>
 			<th>Airline</th>
 			<th>Code</th>
 			<th>Departure</th>
@@ -84,6 +85,7 @@ resultSet = statement.executeQuery(sql);
 while(resultSet.next()){
 %>
 		<tr>
+			<td><%=resultSet.getInt("ID") %></td>
 			<td><%=resultSet.getString("Airlines") %></td>
 			<td><%=resultSet.getString("Code") %></td>
 			<td><%=resultSet.getString("Departure") %></td>
@@ -99,6 +101,11 @@ e.printStackTrace();
 }
 %>
 	</table>
+
+	<form name="addflight" method="post" action="/Flight-Management-System/DelFlight" style="text-align: center; font-family: 'DM Sans', sans-serif; letter-spacing: 1.13px; color: white; margin-top: 10px;">
+		Enter ID to Delete : <input type="text" name="id" style="border-width:0px; border-radius: 4px;" />
+		<input type="submit" value="Delete" style="font-family: 'DM Sans', sans-serif; background-color: #ef9761; color: black; padding: 8px; border-radius: 8px; border-bottom: 4px solid white; letter-spacing: 1.1px;border-width:0px; margin-top: 5px; text-align: center;">
+	</form>
 
 </body>
 </html>

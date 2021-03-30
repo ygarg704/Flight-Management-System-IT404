@@ -105,6 +105,10 @@ td {
 
 <div style="background-color: rgba(0, 0, 0, 0.3); border-radius: 20px 20px 20px 20px; color: white; padding: 20px;">
 
+	<div style="text-align: center;">
+    	<img src="img/FMS.png" style="height: 120px; width: 300px;"> 
+  	</div>
+
 	<h3 style="text-align: center; font-family: 'Ubuntu'; color: white;">Booking Details</h3>
 
 	<table align="center" style="color: black;">

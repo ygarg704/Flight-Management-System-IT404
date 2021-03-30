@@ -12,7 +12,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+import java.sql.ResultSet;
+import java.sql.SQLException;
 /**
  * Servlet implementation class AddFlight
  */
@@ -62,6 +63,8 @@ public class AddFlight extends HttpServlet {
         String arr = request.getParameter("arr");
         String seat = request.getParameter("seat");
         String chrg = request.getParameter("chrg");
+        int id = 0;
+        
         
         Statement stmt = null;
         
@@ -71,17 +74,25 @@ public class AddFlight extends HttpServlet {
 			System.out.println("Connected database successfully...");
 			
 			stmt = con.createStatement();
+			String sql = "select * from flightdata";
 			
-			PreparedStatement insertstm = con.prepareStatement("insert into flightdata VALUES (?,?,?,?,?,?)");  
+			ResultSet rs = stmt.executeQuery(sql);
+			
+			while(rs.next()){
+				id = rs.getInt("ID") + 1;
+			}
+			
+			PreparedStatement insertstm = con.prepareStatement("insert into flightdata VALUES (?,?,?,?,?,?,?)");  
 			
 			BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));  
 		    
-	    	insertstm.setString(1, aname);
-	    	insertstm.setString(2, acode);
-	    	insertstm.setString(3, dep);
-	    	insertstm.setString(4, arr);
-	    	insertstm.setString(5, seat);
-	    	insertstm.setString(6, chrg);
+			insertstm.setInt(1, id);
+	    	insertstm.setString(2, aname);
+	    	insertstm.setString(3, acode);
+	    	insertstm.setString(4, dep);
+	    	insertstm.setString(5, arr);
+	    	insertstm.setString(6, seat);
+	    	insertstm.setString(7, chrg);
 			int i = insertstm.executeUpdate();
 		} catch (Exception e) {
 			System.out.println(e);
