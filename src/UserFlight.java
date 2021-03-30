@@ -14,6 +14,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class UserFlight
@@ -60,6 +61,17 @@ public class UserFlight extends HttpServlet {
         String arr = 	request.getParameter("arr");
         String peeps = 	request.getParameter("peeps");
         
+
+        HttpSession session = request.getSession(true);
+        session.setAttribute("fname", fname);
+        session.setAttribute("lname", lname);
+        session.setAttribute("mail", mail);
+        session.setAttribute("numb", numb);
+        session.setAttribute("aname", aname);
+        session.setAttribute("dep", dep);
+        session.setAttribute("arr", arr);
+        session.setAttribute("peeps", peeps);
+        
         Statement stmt = null;
         
         try {
@@ -86,7 +98,7 @@ public class UserFlight extends HttpServlet {
 			System.out.println(e);
 		}
         System.out.println("Successfully Added!");
-        RequestDispatcher rd = request.getRequestDispatcher("/UserDash.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("/Booked.jsp");
         rd.forward(request, response);
 	}
 }
